@@ -1,0 +1,24 @@
+Items needed 
+
+this gets "year-make-modle-trim-new/used"
+head -n 1 links.txt|sed 's/^.\{52\}//g'|sed 's/.\{14\}$//'
+
+pulles all the sting apart from above command 
+head -n 1 links.txt|sed 's/^.\{52\}//g'|sed 's/.\{14\}$//'|sed 's/\-/ /g'|sed 's/_/ /'
+
+
+Year 
+
+Make 
+
+Modle 
+
+Trim
+
+Stock 
+cat flyingcloud.txt|grep -i stock|sed 's/^.\{11\}//g'
+
+Vin
+cat flyingcloud.txt|grep -i -A1 vin:|tail -n 1
+
+Interrier color 
