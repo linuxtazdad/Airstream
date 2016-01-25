@@ -2,7 +2,7 @@
 
 #this is where the loop starts for the CSV file 
 for i in $(cat links.txt) ;do
-FILE_NAME=$(echo $i|sed 's/^.\{52\}//g'|sed 's/.\{14\}$//')
+FILE_NAME=$(echo $i|sed 's/^.\{52\}//g'|sed 's/.\{14\}$//'|sed 's/-//')
 echo $FILE_NAME
 MODLE_YEAR=$(echo $i|sed 's/^.\{52\}//g'|sed 's/.\{14\}$//'|sed 's/\-/ /g'|sed 's/_/ /'|cut -d' ' -f1)
 MODLE_MANF=$(echo $i|sed 's/^.\{52\}//g'|sed 's/.\{14\}$//'|sed 's/\-/ /g'|sed 's/_/ /'|cut -d' ' -f2)
