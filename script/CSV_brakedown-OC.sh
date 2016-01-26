@@ -16,7 +16,7 @@ VIN_NUMBER=$(cat Files\/$FILE_NAME|grep -i -A1 vin:|tail -n 1)
 INT_COLOR=$(cat Files\/$FILE_NAME|grep -i -A1 "int color"|tail -n 1)
 EXT_COLOR=$(cat Files\/$FILE_NAME|grep -i -A1 "color:"|tail -n 1)
 PRICE_MARK=$(cat Files\/$FILE_NAME|grep 'Asking Price\|MSRP Price\|Sold'|cut -d':' -f1|tail -n1)
-PRICE_SHOW=$(cat Files\/$FILE_NAME|grep 'Asking Price\|MSRP Price\|Sold'|cut -d':' -f2|tail -n1|sed 's/\,//')
+PRICE_SHOW=$(cat Files\/$FILE_NAME|		
 let COUNT=COUNT+1
 echo $COUNT
 echo $STOCK_NUMBER,$VIN_NUMBER,$MODLE_YEAR,$MODLE_MANF,$MODLE_TYPE,$MODLE_TRIM,$STOCK_TYPE,$EXT_COLOR,$INT_COLOR,$PRICE_MARK,$PRICE_SHOW >>web_invtory.csv
