@@ -13,5 +13,5 @@ for i in $(cat dif_stock.tmp)
 	grep $i web_invtory.csv>>dif_stock.csv
 	grep $i invtory.csv>> dif_stock.csv
 	done
-#rm stock_number.tmp 
-#rm dif_stock.tmp
+rm stock_number.tmp 
+rm dif_stock.tmp
