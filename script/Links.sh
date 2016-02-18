@@ -16,11 +16,12 @@ while [ $MORE_PAGE \> "1" ] ;do
 	let PAGE=PAGE+1
 	#echo sleeping
 	sleep 30
-	#rm dump.tmp
+	rm dump.tmp
 done
 
-#wc -l links.txt
+#
 #this is where the loop starts for the CSV file 
+#
 for i in $(cat links.txt) ;do
 FILE_NAME=$(echo $i|sed 's/^.\{52\}//g'|sed 's/.\{14\}$//')
 #echo $FILE_NAME
@@ -45,4 +46,4 @@ echo $STOCK_NUMBER,$VIN_NUMBER,$MODLE_YEAR,$MODLE_MANF,$MODLE_TYPE,$MODLE_TRIM,$
 sleep 20
 rm -f Files\/$FILE_NAME
 done 
-
+rm links.txt

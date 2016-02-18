@@ -15,3 +15,6 @@ for i in $(cat dif_stock.tmp)
 	done
 rm stock_number.tmp 
 rm dif_stock.tmp
+for i in $(cat needtoremove.run) ;do
+sed -i "/$i/d" dif_stock.csv
+done
