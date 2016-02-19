@@ -2,7 +2,7 @@
 #this is just the script that is going to be running everything
 #it downloads and upload all files to dropbox thanks to 
 
-dropbox='~/.dropscrit/dropbox_uploader.sh'
+alias dropbox='/home/jeremy/.dropscrit/dropbox_uploader.sh'
 
 dropbox download invtory/invtory.csv invtory.csv
 
