@@ -19,6 +19,5 @@ while [ $MORE_PAGE \> "1" ] ;do
 	rm dump-oc.tmp
 done
 
-wc -l links.txt
 
 
