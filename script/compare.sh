@@ -10,11 +10,12 @@ sort stock_number.tmp|uniq -u>dif_stock.tmp
 #this is where it starts comparring 
 for i in $(cat dif_stock.tmp)
 	do
-	grep $i web_invtory.csv>>dif_stock.csv
-	grep $i invtory.csv>> dif_stock.csv
+	grep $i web_invtory.csv>>dif_stock
+	grep $i invtory.csv>> dif_stock
 	done
 rm stock_number.tmp 
 rm dif_stock.tmp
+sort dif_stock|uniq -u >>dif_stock.csv
 for i in $(cat needtoremove.run) ;do
 sed -i "/$i/d" dif_stock.csv
 done
