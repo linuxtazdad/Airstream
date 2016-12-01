@@ -1,14 +1,19 @@
-#!/bin/bash
-#this is just the script that is going to be running everything
-#it downloads and upload all files to dropbox thanks to 
-
-alias dropbox='/home/jeremy/.dropscrit/dropbox_uploader.sh'
-
-dropbox download invtory/invtory.csv invtory.csv
-
+#//this is just a easy way to get it all taken care of.
+alias dropbox="/home/jeremy/.dropscrit/dropbox_uploader.sh"
+now=$(date +"%m_%d_%Y")
+echo "running  Links.sh"
 ./Links.sh
+echo "getting invtory from dropbox"
+/home/jeremy/.dropscrit/./dropbox_uploader.sh download invtory/invtory.csv
+echo "comparing the files"
 ./compare.sh
-
-dropbox upload web_invtory.csv invtory/web_invtory.csv
-dropbox upload dif_stock.csv invtory/dif_stock.csv
-
+echo "uploading web invtory to dropbox"
+/home/jeremy/.dropscrit/./dropbox_uploader.sh upload web_invtory.csv invtory/web_invtory.csv
+echo "uploading dif stock to dropbox"
+/home/jeremy/.dropscrit/./dropbox_uploader.sh upload dif_stock.csv invtory/dif_stock.csv
+echo "would be removing files" 
+rm dif_stock
+rm dif_stock.csv
+rm invtory.csv
+mv web_invtory.csv WI_$now.csv
+#alias dropbox="/home/jeremy/.dropscrit/dropbox_uploader.sh"

@@ -17,9 +17,10 @@ INT_COLOR=$(cat Files\/$FILE_NAME|grep -i -A1 "int color"|tail -n 1)
 EXT_COLOR=$(cat Files\/$FILE_NAME|grep -i -A1 "color:"|tail -n 1)
 PRICE_MARK=$(cat Files\/$FILE_NAME|grep 'Price\|Sold'|cut -d':' -f1|tail -n1)
 PRICE_SHOW=$(cat Files\/$FILE_NAME|grep 'Price\|Sold'|cut -d':' -f2|tail -n1|sed 's/\,//')
+SHOW=$(cat Files\/$FILE_NAME|grep 'Located at'|cut -d':' -f2)
 let COUNT=COUNT+1
 #echo $COUNT
-echo $STOCK_NUMBER,$VIN_NUMBER,$MODLE_YEAR,$MODLE_MANF,$MODLE_TYPE,$MODLE_TRIM,$STOCK_TYPE,$EXT_COLOR,$INT_COLOR,$PRICE_MARK,$PRICE_SHOW >>web_invtory.csv
+echo $STOCK_NUMBER,$VIN_NUMBER,$MODLE_YEAR,$MODLE_MANF,$MODLE_TYPE,$MODLE_TRIM,$STOCK_TYPE,$EXT_COLOR,$INT_COLOR,$PRICE_MARK,$PRICE_SHOW,$STORE>>web_invtory.csv
 #echo $STOCK_NUMBER,$VIN_NUMBER,$MODLE_YEAR,$MODLE_MANF,$MODLE_TYPE,$MODLE_TRIM,$STOCK_TYPE,$EXT_COLOR,$INT_COLOR,$PRICE_MARK,$PRICE_SHOW,
 #echo sleeping
 sleep 20
