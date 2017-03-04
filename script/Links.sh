@@ -47,11 +47,11 @@ lynx -dump -accept_all_cookies $i >Files\/$FILE_NAME
 STOCK_NUMBER=$(cat Files\/$FILE_NAME|grep -i stock|sed 's/.Stock\ \# //g'|sed 's/ //g')
 #Getting VIN
 VIN_NUMBER=$(cat Files\/$FILE_NAME|grep VIN\ #|sed 's/VIN\ \#//g'|sed 's/ //g')
-#pulling ext and int color not working right 1/26/17
-#INT_COLOR=$(cat Files\/$FILE_NAME|grep -i -A1 "int color"|tail -n 1)
-#EXT_COLOR=$(cat Files\/$FILE_NAME|grep -i -A1 "color:"|tail -n 1)
-#pulling sold or not. i think
-PRICE_MARK=$(cat Files\/$FILE_NAME|grep 'Price\|Sold'|cut -d':' -f1|tail -n1)
+#pulling ext and int color working right 3/3/17
+INT_COLOR=$(cat Files\/$FILE_NAME|grep -i -A1 "interior color"|tail -n 1)
+EXT_COLOR=$(cat Files\/$FILE_NAME|grep -i -A1 "exterior color"|tail -n 1)
+#pulling sold or not.
+PRICE_MARK=$(cat Files\/$FILE_NAME|grep 'Price\|Sold'|head -n1)
 #price showen
 PRICE_SHOW=$(cat Files\/$FILE_NAME|grep '\$'|head -n 1|sed 's/\,//'|sed 's/.*\$//g')
 let COUNT=COUNT+1
@@ -70,9 +70,9 @@ if grep -q 92530 Files\/$FILE_NAME; then
 			STOCK_LOT=LA
 		fi
 	fi
-echo $COUNT
+#echo $COUNT
 echo $STOCK_LOT,$STOCK_NUMBER,$VIN_NUMBER,$MODLE_YEAR,$MODLE_MANF,$MODLE_TYPE,$MODLE_TRIM,$STOCK_TYPE,$EXT_COLOR,$INT_COLOR,$PRICE_MARK,$PRICE_SHOW, >>web_invtory.csv
-echo $STOCK_NUMBER,$VIN_NUMBER,$MODLE_YEAR,$MODLE_MANF,$MODLE_TYPE,$MODLE_TRIM,$STOCK_TYPE,$EXT_COLOR,$INT_COLOR,$PRICE_MARK,$PRICE_SHOW,$STOCK_LOT,
+#echo $STOCK_NUMBER,$VIN_NUMBER,$MODLE_YEAR,$MODLE_MANF,$MODLE_TYPE,$MODLE_TRIM,$STOCK_TYPE,$EXT_COLOR,$INT_COLOR,$PRICE_MARK,$PRICE_SHOW,$STOCK_LOT,
 echo sleeping
 sleep 20
 rm -f Files\/$FILE_NAME
