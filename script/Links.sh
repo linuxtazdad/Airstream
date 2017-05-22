@@ -66,10 +66,14 @@ if grep -q 92530 Files\/$FILE_NAME; then
     		#echo found
 			STOCK_LOT=OC 
 			else
-   			#echo not found
-			STOCK_LOT=LA
+   			if 
+			 grep -q 89122 Files\/$FILE_NAME; then
+			 STOCK_LOT=LV
+			 else
+			 STOCK_LOT=LA
+			fi
 		fi
-	fi
+fi
 #echo $COUNT
 echo $STOCK_LOT,$STOCK_NUMBER,$VIN_NUMBER,$MODLE_YEAR,$MODLE_MANF,$MODLE_TYPE,$MODLE_TRIM,$STOCK_TYPE,$EXT_COLOR,$INT_COLOR,$PRICE_MARK,$PRICE_SHOW, >>web_invtory.csv
 #echo $STOCK_NUMBER,$VIN_NUMBER,$MODLE_YEAR,$MODLE_MANF,$MODLE_TYPE,$MODLE_TRIM,$STOCK_TYPE,$EXT_COLOR,$INT_COLOR,$PRICE_MARK,$PRICE_SHOW,$STOCK_LOT,
