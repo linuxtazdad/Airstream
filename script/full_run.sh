@@ -1,8 +1,11 @@
 #//this is just a easy way to get it all taken care of.
 alias dropbox="/home/jeremy/.dropscrit/dropbox_uploader.sh"
 now=$(date +"%m_%d_%Y")
-echo "running  Links.sh"
-./Links.sh
+#no longer needed do to move to dealerspike website 02/2/18
+#echo "running  Links.sh"
+#./Links.sh
+echo "pulling web invtory from dealerspike"
+(placeholder)
 echo "getting invtory from dropbox"
 /home/jeremy/.dropscrit/./dropbox_uploader.sh download invtory/invtory.csv
 echo "comparing the files"
