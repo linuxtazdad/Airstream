@@ -5,7 +5,7 @@ now=$(date +"%m_%d_%Y")
 #echo "running  Links.sh"
 #./Links.sh
 echo "pulling web invtory from dealerspike"
-wget -q -O web-invtory.csv "www.airstreamlosangeles.com/feeds.asp?feed=GenericCSVFeed"
+wget -q -O web_invtory.csv "www.airstreamlosangeles.com/feeds.asp?feed=GenericCSVFeed"
 echo "getting invtory from dropbox"
 /home/jeremy/.dropscrit/./dropbox_uploader.sh download invtory/invtory.csv
 echo "comparing the files"
