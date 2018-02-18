@@ -3,7 +3,7 @@
 #this space is for cleaning the list from ADP
 #this is pulling the stock numbers from both files
 cat invtory.csv|cut -d"," -f13>>vin_number.tmp
-cat web_invtory.csv|cut -d"," -f6>>vin_number.tmp
+cat web_invtory.csv|cut -d"," -f6|sed 's/\"//g'>>vin_number.tmp
 sort vin_number.tmp|uniq -u>dif_vin.tmp
 cat web_invtory.csv|awk -F, '$1 ~ /LA/'>> LA_invtory.csv
 
