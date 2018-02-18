@@ -10,7 +10,7 @@ cat web_invtory.csv|awk -F, '$1 ~ /LA/'>> LA_invtory.csv
 #this is where it starts comparring 
 for i in $(cat dif_vin.tmp)
 	do
-	grep $i LA_invtory.csv>>dif_stock
+	grep $i web_invtory.csv>>dif_stock
 	grep $i invtory.csv>> dif_stock
 	done
 rm vin_number.tmp 
