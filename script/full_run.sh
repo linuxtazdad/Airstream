@@ -11,7 +11,7 @@ echo "getting invtory from dropbox"
 echo "comparing the files"
 ./compare.sh
 #echo "uploading web invtory to dropbox"
-#/home/jeremy/.dropscrit/./dropbox_uploader.sh upload web_invtory.csv invtory/web_invtory.csv
+/home/jeremy/.dropscrit/./dropbox_uploader.sh upload web_invtory.csv invtory/web_invtory.csv
 echo "uploading dif stock to dropbox"
 /home/jeremy/.dropscrit/./dropbox_uploader.sh upload dif_stock.csv invtory/dif_stock.csv
 echo "would be removing files" 
