@@ -20,4 +20,3 @@ sort dif_stock|uniq -u >>dif_stock.csv
 for i in $(cat needtoremove.run) ;do
 sed -i "/$i/d" dif_stock.csv
 done
-rm LA_invtory.csv

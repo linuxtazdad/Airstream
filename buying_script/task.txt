@@ -1,0 +1,22 @@
+Buying Script 
+
+Out line 
+take a feed given and get the feed it came from the title they used and price in to a spread sheet 
+
+Sorces goles 
+Cragslist RSS 
+RVT.com RSS (need to also have it filter by make) 
+RVTrader.com
+more to come ?
+
+Steps the Script needs to take.
+
+Pull feed.
+ scan feed for new itmes 
+	track the sorc 
+	pull out price 
+	pull out title 
+	get url for post  
+	
+
+
