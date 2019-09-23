@@ -19,3 +19,4 @@ wget -q -O ALV-web_invtory.csv "www.airstreamlosangeles.com/feeds.asp?feed=Gener
 $dropbox upload ALV-web_invtory.csv Invtory/Web-site/
 ###Cleaning up Files
 rm *-web_invtory.csv
+##Testing pushing 
