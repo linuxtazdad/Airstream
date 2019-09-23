@@ -1,0 +1,3 @@
+This is the directroy where I am going to pace all the working files for 
+all 4 stors to automate the invtory process and email it out to the GSM's and GM 
+
