@@ -12,7 +12,7 @@ sed 1d Working/CDK-Raw/AIE.csv >>Working/CDK-All-Store.csv
 sed 1d Working/CDK-Raw/AOC.csv >>Working/CDK-All-Store.csv
 sed 1d Working/CDK-Raw/ALV.csv >>Working/CDK-All-Store.csv
 
-$drobox upload Working/CDK-All-Store.csv Invtory/CDK-Raw/CDK-All-Store.csv
+$dropbox upload Working/CDK-All-Store.csv Invtory/CDK-Raw/CDK-All-Store.csv
 
 
 ##clean up mess at when all done.
