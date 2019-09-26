@@ -7,5 +7,5 @@
 dropbox="/home/jeremy/.dropscrit/dropbox_uploader.sh"
 
 ##pulling all the working files in to the directroy
-$dropbox download invtory/CDK-Raw  working/
-$dropbox download invtory/Web-site working/
+$dropbox download Invtory/CDK-Raw Working/CDK-Raw
+$dropbox download Invtory/Web-site Working/Web-Invtory/
