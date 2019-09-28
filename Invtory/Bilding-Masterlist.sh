@@ -29,7 +29,7 @@ for i in $(cat Working/CDK-All-Store.csv) ;do
   OUTSIDE_COLOR=$(echo $i |cut -d ',' -f9|tr -d '[:space:]')
   INSIDE_COLOR=$(echo $i |cut -d ',' -f10|tr -d '[:space:]')
   SALE_PRICE=$(echo $i |cut -d ',' -f12|tr -d '[:space:]')
-  MSRP=$(echo $i |cut -d ',' -f30)
+  MSRP=$(echo $i |cut -d ',' -f30|tr -d '[:space:]')
   INVOICE=$(echo $i |cut -d ',' -f13|tr -d '[:space:]')
   BALANCE=$(echo $i |cut -d ',' -f14|tr -d '[:space:]')
   COMPANY_NUMBER=$(echo $i |cut -d ',' -f16|tr -d '[:space:]')
