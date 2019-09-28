@@ -61,9 +61,10 @@ echo "stock No,Type,Year,Make,Model,Model#,ExtColor,IntColor,Age,MSRP,SalePrice,
 cat Working/Managers-Invtory.tmp >>Working/Managers-Invtory.csv
 $dropbox upload Working/Managers-Invtory.csv Invtory/Managers-Invtory.csv
 #Sales Person Invtory
-echo "stock No,Type,Year,Make,Model,Model#,ExtColor,IntColor,Age,MSRP,SalePrice,LOT,VIN,Notes," >Working/Managers-Invtory.csv
-cat Working/Sales-All-Invtory.tmp >>Working/Sales-All-Invtory.csv
-$dropbox upload Working/Managers-Invtory.csv Invtory/Sales-All-Invtory.csv
+echo "stock No,Type,Year,Make,Model,Model#,ExtColor,IntColor,Age,MSRP,SalePrice,LOT,VIN,Notes," >Working/Sales-All-Invtory.csv
+grep -F -eNEW -eUSED Working/Sales-All-Invtory.tmp >>Working/Sales-All-Invtory.csv
+#cat Working/Sales-All-Invtory.tmp >>Working/Sales-All-Invtory.csv
+$dropbox upload Working/Sales-All-Invtory.csv Invtory/Sales-All-Invtory.csv
 
 ##clean up mess at when all done.
 rm Working/*.csv
