@@ -51,12 +51,20 @@ for i in $(cat Working/CDK-All-Store.csv) ;do
     LOCATED=ALV
       ;;
   esac
+#Managers invtory
 echo $STOCK_NUMBER,$STOCK_TYPE,$MODEL_YEAR,$MAKE,$MODEL,$MODEL_NUMBER,$OUTSIDE_COLOR,$INSIDE_COLOR,$AGE,$MSRP,$SALE_PRICE,$BALANCE,$INVOICE,$LOCATED,$VIN_NUMBER,$DEALER_NOTES,>>Working/Managers-Invtory.tmp
+#Sales person invotry
+echo $STOCK_NUMBER,$STOCK_TYPE,$MODEL_YEAR,$MAKE,$MODEL,$MODEL_NUMBER,$OUTSIDE_COLOR,$INSIDE_COLOR,$AGE,$MSRP,$SALE_PRICE,$LOCATED,$VIN_NUMBER,$DEALER_NOTES,>>Working/Sales-All-Invtory.tmp
 done
+#Managers Invtory
 echo "stock No,Type,Year,Make,Model,Model#,ExtColor,IntColor,Age,MSRP,SalePrice,Balance,Invoice,LOT,VIN,Notes," >Working/Managers-Invtory.csv
 cat Working/Managers-Invtory.tmp >>Working/Managers-Invtory.csv
 $dropbox upload Working/Managers-Invtory.csv Invtory/Managers-Invtory.csv
+#Sales Person Invtory
+echo "stock No,Type,Year,Make,Model,Model#,ExtColor,IntColor,Age,MSRP,SalePrice,LOT,VIN,Notes," >Working/Managers-Invtory.csv
+cat Working/Sales-All-Invtory.tmp >>Working/Sales-All-Invtory.csv
+$dropbox upload Working/Managers-Invtory.csv Invtory/Sales-All-Invtory.csv
+
 ##clean up mess at when all done.
-rm Working/CDK-All-Store.csv
-rm Working/Managers-Invtory.tmp
-rm Working/Managers-Invtory.csv
+rm Working/*.csv
+rm Working/*.tmp
