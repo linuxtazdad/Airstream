@@ -1,4 +1,4 @@
-#1/bin/bash
+#!/bin/bash
 ##this is what is going to be for all the sales managers to know what is what.
 dropbox="/home/jeremy/.dropscrit/dropbox_uploader.sh"
 
