@@ -34,7 +34,7 @@ for i in $(cat Working/CDK-All-Store.csv) ;do
   BALANCE=$(echo $i |cut -d ',' -f14|tr -d '[:space:]')
   COMPANY_NUMBER=$(echo $i |cut -d ',' -f16|tr -d '[:space:]')
   AGE=$(echo $i |cut -d ',' -f17|tr -d '[:space:]')
-  DEALER_NOTES=$(echo $i |cut -d ',' -f23|tr -d '[:space:]')
+  DEALER_NOTES=$(echo $i |cut -d ',' -f22|tr -d '[:space:]')
   VIN_NUMBER=$(echo $i |cut -d ',' -f19|tr -d '[:space:]')
 ##This is setting the varable LOCATED based on what company it cames from.
   case $COMPANY_NUMBER in
