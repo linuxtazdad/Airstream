@@ -55,6 +55,8 @@ for i in $(cat Working/CDK-All-Store.csv) ;do
 echo $STOCK_NUMBER,$STOCK_TYPE,$MODEL_YEAR,$MAKE,$MODEL,$MODEL_NUMBER,$OUTSIDE_COLOR,$INSIDE_COLOR,$AGE,$MSRP,$SALE_PRICE,$BALANCE,$INVOICE,$LOCATED,$VIN_NUMBER,$DEALER_NOTES,>>Working/Managers-Invtory.tmp
 #Sales person invotry
 echo $STOCK_NUMBER,$STOCK_TYPE,$MODEL_YEAR,$MAKE,$MODEL,$MODEL_NUMBER,$OUTSIDE_COLOR,$INSIDE_COLOR,$AGE,$MSRP,$SALE_PRICE,$LOCATED,$VIN_NUMBER,$DEALER_NOTES,>>Working/Sales-All-Invtory.tmp
+#Physical invtory
+echo $STOCK_NUMBER,$STOCK_TYPE,$MODEL_YEAR,$MAKE,$MODEL,,$LOCATED,$VIN_NUMBER,$DEALER_NOTES,>>Working/Physical-All-Invtory.tmp
 done
 #Managers Invtory
 echo "stock No,Type,Year,Make,Model,Model#,ExtColor,IntColor,Age,MSRP,SalePrice,Balance,Invoice,LOT,VIN,Notes," >Working/Managers-Invtory.csv
@@ -65,7 +67,10 @@ echo "stock No,Type,Year,Make,Model,Model#,ExtColor,IntColor,Age,MSRP,SalePrice,
 grep -F -eNEW -eUSED Working/Sales-All-Invtory.tmp >>Working/Sales-All-Invtory.csv
 #cat Working/Sales-All-Invtory.tmp >>Working/Sales-All-Invtory.csv
 $dropbox upload Working/Sales-All-Invtory.csv Invtory/Sales-All-Invtory.csv
-
+#Physical invtory for alias
+echo "stock No,Type,Year,Make,Model,Model#,LOT,Store,VIN,Notes," >Working/Sales-All-Invtory.csv
+grep -F -eNEW -eUSED Working/Physical-All-Invtory.tmp >>Working/Physical-All-Invtory.csv
+$dropbox upload Working/Physical-All-Invtory.csv Invtory/Physical-All-Invtory.csv
 ##clean up mess at when all done.
 rm Working/*.csv
 rm Working/*.tmp
