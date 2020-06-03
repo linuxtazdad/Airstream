@@ -14,10 +14,11 @@ sed 1d Working/CDK-Raw/AOC.csv >>Working/CDK-All-Store.csv
 sed 1d Working/CDK-Raw/ALV.csv >>Working/CDK-All-Store.csv
 $dropbox upload Working/CDK-All-Store.csv Invtory/CDK-Raw-All-Store.csv
 ##making cleaner Masterlist
-##gets bash to ignore white space
-#IFS=$'\n'
 sed 1d Working/CDK-All-Store.csv| sponge Working/CDK-All-Store.csv
 tr ' ' '_' <Working/CDK-All-Store.csv|sponge Working/CDK-All-Store.csv
+##removing all the $ in the file so it that will not trip up my script 
+sed -i 's/\$//g' Working/CDK-All-Store.csv
+##looping in file to read each line.
 for i in $(cat Working/CDK-All-Store.csv) ;do
   ##LIST OF ITEMS FOR THE NEW CSV FILES
   STOCK_NUMBER=$(echo $i|cut -d ',' -f1|tr -d '[:space:]')
@@ -50,24 +51,24 @@ for i in $(cat Working/CDK-All-Store.csv) ;do
     26 )
     LOCATED=ALV
       ;;
-  esac
-#Managers invtory
+#  esac
+##Managers invtory
 echo $STOCK_NUMBER,$STOCK_TYPE,$MODEL_YEAR,$MAKE,$MODEL,$MODEL_NUMBER,$OUTSIDE_COLOR,$INSIDE_COLOR,$AGE,\"$MSRP\",\"$SALE_PRICE\",\"$BALANCE\",\"$INVOICE\",$LOCATED,$VIN_NUMBER,$DEALER_NOTES,>>Working/Managers-Invtory.tmp
-#Sales person invotry
+##Sales person invotry
 echo $STOCK_NUMBER,$STOCK_TYPE,$MODEL_YEAR,$MAKE,$MODEL,$MODEL_NUMBER,$OUTSIDE_COLOR,$INSIDE_COLOR,$AGE,\"$MSRP\",\"$SALE_PRICE\",$LOCATED,$VIN_NUMBER,$DEALER_NOTES,>>Working/Sales-All-Invtory.tmp
-#Physical invtory
+##Physical invtory
 echo $STOCK_NUMBER,$STOCK_TYPE,$MODEL_YEAR,$MAKE,$MODEL,,$LOCATED,$VIN_NUMBER,$DEALER_NOTES,>>Working/Physical-All-Invtory.tmp
 done
-#Managers Invtory
+##Managers Invtory
 echo "stock No,Type,Year,Make,Model,Model#,ExtColor,IntColor,Age,MSRP,SalePrice,Balance,Invoice,LOT,VIN,Notes," >Working/Managers-Invtory.csv
 cat Working/Managers-Invtory.tmp >>Working/Managers-Invtory.csv
 $dropbox upload Working/Managers-Invtory.csv Invtory/Managers-Invtory.csv
-#Sales Person Invtory
+##Sales Person Invtory
 echo "stock No,Type,Year,Make,Model,Model#,ExtColor,IntColor,Age,MSRP,SalePrice,LOT,VIN,Notes," >Working/Sales-All-Invtory.csv
 grep -F -eNEW -eUSED Working/Sales-All-Invtory.tmp >>Working/Sales-All-Invtory.csv
-#cat Working/Sales-All-Invtory.tmp >>Working/Sales-All-Invtory.csv
+cat Working/Sales-All-Invtory.tmp >>Working/Sales-All-Invtory.csv
 $dropbox upload Working/Sales-All-Invtory.csv Invtory/Sales-All-Invtory.csv
-#Physical invtory for alias
+##Physical invtory for alias
 echo "stock No,Type,Year,Make,Model,Model#,LOT,Store,VIN,Notes," >Working/Sales-All-Invtory.csv
 grep -F -eNEW -eUSED Working/Physical-All-Invtory.tmp >>Working/Physical-All-Invtory.csv
 $dropbox upload Working/Physical-All-Invtory.csv Invtory/Physical-All-Invtory.csv
