@@ -16,6 +16,8 @@ $dropbox upload Working/CDK-All-Store.csv Invtory/CDK-Raw-All-Store.csv
 ##making cleaner Masterlist
 sed 1d Working/CDK-All-Store.csv| sponge Working/CDK-All-Store.csv
 tr ' ' '_' <Working/CDK-All-Store.csv|sponge Working/CDK-All-Store.csv
+##adding a sort and uniq to get rid of dupes
+#sort Working/CDK-All-Store.csv|uniq| sponge Working/CDK-All-Store.csv
 ##removing all the $ in the file so it that will not trip up my script 
 sed -i 's/\$//g' Working/CDK-All-Store.csv
 ##looping in file to read each line.
@@ -66,10 +68,10 @@ $dropbox upload Working/Managers-Invtory.csv Invtory/Managers-Invtory.csv
 ##Sales Person Invtory
 echo "stock No,Type,Year,Make,Model,Model#,ExtColor,IntColor,Age,MSRP,SalePrice,LOT,VIN,Notes," >Working/Sales-All-Invtory.csv
 grep -F -eNEW -eUSED Working/Sales-All-Invtory.tmp >>Working/Sales-All-Invtory.csv
-cat Working/Sales-All-Invtory.tmp >>Working/Sales-All-Invtory.csv
+#cat Working/Sales-All-Invtory.tmp >>Working/Sales-All-Invtory.csv
 $dropbox upload Working/Sales-All-Invtory.csv Invtory/Sales-All-Invtory.csv
 ##Physical invtory for alias
-echo "stock No,Type,Year,Make,Model,Model#,LOT,Store,VIN,Notes," >Working/Sales-All-Invtory.csv
+echo "stock No,Type,Year,Make,Model,Model#,LOT,Store,VIN,Notes," >Working/Physical-All-Invtory.csv
 grep -F -eNEW -eUSED Working/Physical-All-Invtory.tmp >>Working/Physical-All-Invtory.csv
 $dropbox upload Working/Physical-All-Invtory.csv Invtory/Physical-All-Invtory.csv
 ##clean up mess at when all done.
